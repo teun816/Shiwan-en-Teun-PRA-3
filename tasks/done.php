@@ -6,7 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Developer Land</h1>
-    <a href=""></a>
+    <header>
+    <div>
+    <img src="/logo-big-fill-only.png" alt="DeveloperLand logo" class="logo hidden-on-sm">
+    <h1 class="hidden-on-lg">DeveloperLand</h1>
+    <a href="/index.php">Index</a>
+    </div>
+    </header>
 </body>
 </html>
