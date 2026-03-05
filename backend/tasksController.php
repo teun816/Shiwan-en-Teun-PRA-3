@@ -21,4 +21,4 @@ $statement->execute([
 
 $items = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-header("Location: ../Task/index.php?msg=Taak opgeslagen");
+header("Location: ../Task/index.php?msg=Taak opgeslage");
