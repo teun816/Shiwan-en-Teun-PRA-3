@@ -6,3 +6,5 @@
     <input type="text" id="title" name="title">
     <input type="text" id="beschrijving" name="beschrijving">
     <input type="text" id="afdeling" name="afdeling">
+
+    <input type="submit" value="Verstuur melding">
