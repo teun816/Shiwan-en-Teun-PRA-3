@@ -7,12 +7,16 @@
 </head>
 
 <body>
-    
+<header>
+    <div>
+            <img src="logo-big-fill-only.png" alt="DeveloperLand logo" class="logo hidden-on-sm">
+    </div>
+</header>    
     <div class="container">
 
 
     </div>
-
+<a href="/tasks/done.php">Done</a>
 </body>
 
 </html>
