@@ -3,7 +3,7 @@
 
 <head>
     <title></title>
-    <?php require_once 'create.ph'; ?>
+    <?php require_once 'create.php'; ?>
 </head>
 
 <body>
