@@ -44,7 +44,7 @@ if($action == "update"){
         "id" => $id
     ]);
     $melding = $statement->fetch(PDO::FETCH_ASSOC);
-    header("Location: ../index.php?msg=Taak opgeslagen");
+    header("Location: ../index.php?msg=Taak opgeslagen")
 }
 
 if($action == "delete"){
