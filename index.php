@@ -7,16 +7,43 @@
 </head>
 
 <body>
-<header>
-    <div>
-            <img src="logo-big-fill-only.png" alt="DeveloperLand logo" class="logo hidden-on-sm">
+<?php require_once 'header.php'; ?>
+<main>
+    <div class="container1.0">
+
+    <h1>Takenoverzicht</h1>
+
+    <div class="board">
+
+        <div class="column">
+            <h2>Te doen</h2>
+            <p>taak 1</p>
+            <p>taak 2</p>
+            <p>taak 3</p>
+        </div>
+
+        <div class="column">
+            <h2>Bezig</h2>
+            <p>taak 4</p>
+        </div>
+
+        <div class="column">
+            <h2>Afgerond</h2>
+            <p>taak 5</p>
+            <p>taak 6</p>
+        </div>
+
     </div>
-</header>    
-    <div class="container">
+
+    <div class="buttons">
+        <button>Toevoegen</button>
+        <button>Verwijderen</button>
+    </div>
+
+</div>
+</main>
 
 
-    </div>
-<a href="/tasks/done.php">Done</a>
 </body>
 
 </html>
