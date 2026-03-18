@@ -10,17 +10,19 @@ if ($action === "create") {
     $titel = trim($_POST['titel']);
     $beschrijving = trim($_POST['beschrijving']);
     $afdeling = $_POST['afdeling'];
+    $status = trim($_POST['status']);
 
     // ✅ INSERT query (status automatisch 'todo')
     $sql = "INSERT INTO taken (titel, beschrijving, afdeling, status)
-            VALUES (:titel, :beschrijving, :afdeling, 'todo')";
+            VALUES (:titel, :beschrijving, :afdeling, :status)";
 
     $statement = $conn->prepare($sql);
 
     $statement->execute([
         ':titel' => $titel,
         ':beschrijving' => $beschrijving,
-        ':afdeling' => $afdeling
+        ':afdeling' => $afdeling,
+        ':status' => $status
     ]);
 
     // Redirect na succes

@@ -47,6 +47,9 @@
 
             <label for="afdeling">Afdeling</label>
             <input type="text" id="afdeling" name="afdeling" value="<?php echo $taken['afdeling']; ?>">
+
+            <label for="status">Status</label>
+            <input type="text" id="status" name="status" value="<?php echo $taken['status']; ?>">
             
             <input type="submit" value="Melding opslaan">
 
