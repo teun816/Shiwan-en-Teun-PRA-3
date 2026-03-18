@@ -26,6 +26,9 @@
         <option value="groen">Groen</option>
     </select><br><br>
 
+    <label>Status:</label><br>
+    <input type="text" name="status" required><br><br>
+
     <input type="hidden" name="action" value="create">
 
     <button type="submit">Opslaan</button>
