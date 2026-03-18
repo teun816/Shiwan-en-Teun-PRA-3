@@ -1,24 +1,53 @@
 <?php
 
-$titel = $_POST['titel'];
-$beschrijving = $_POST['beschrijving'];
-$afdeling = $_POST['afdeling'];
+require_once("../backend/conn.php");
 
-echo $attractie . " / " . $capaciteit . " / " . $melder;
+$action = $_POST['action'];
 
-require_once 'config.php';
+if ($action === "create") {
 
-$query = "INSERT INTO taken (titel, beschrijving, afdeling)
-VALUES(:titel, :beschrijving, :afdeling)";
+    // Input ophalen
+    $titel = trim($_POST['titel']);
+    $beschrijving = trim($_POST['beschrijving']);
+    $afdeling = $_POST['afdeling'];
 
-$statement = $conn->prepare($query);
+    // ✅ INSERT query (status automatisch 'todo')
+    $sql = "INSERT INTO taken (titel, beschrijving, afdeling, status)
+            VALUES (:titel, :beschrijving, :afdeling, 'todo')";
 
-$statement->execute([
-    ":titel" => $titel,
-    ":beschrijving" => $beschrijving,
-    ":afdeling" => $afdeling,
-]);
+    $statement = $conn->prepare($sql);
 
-$items = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $statement->execute([
+        ':titel' => $titel,
+        ':beschrijving' => $beschrijving,
+        ':afdeling' => $afdeling
+    ]);
 
-header("Location: ../Task/index.php?msg=Taak opgeslage");
+    // Redirect na succes
+    header("Location: ../tasks/index.php");
+    exit;
+}
+
+if($action == "update"){
+    $id = $_POST['id'];
+    $titel = $_POST['titel'];
+    $beschrijving = $_POST['beschrijving'];
+    $afdeling = $_POST['afdeling'];
+
+    require_once 'conn.php';
+    $query = "UPDATE meldingen 
+    SET titel = :titel, beschrijving = :beschrijving, afdeling = :afdeling
+    WHERE id = :id";
+    $statement = $conn->prepare($query);
+    $statement->execute([
+        ":titel" => $titel,
+        ":beschrijving" => $beschrijving,
+        ":afdeling" => $afdeling,
+        "id" => $id
+    ]);
+    $melding = $statement->fetch(PDO::FETCH_ASSOC);
+    header("Location: ../index.php?msg=Taak opgeslagen");
+}
+
+if($action == "delete"){
+}

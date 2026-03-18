@@ -1,10 +1,36 @@
-<!doctype html>
-<html lang="nl">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nieuwe taak</title>
+</head>
+<body>
 
-<form action="../backend/tastController.php" method="post">
-    <label for="title">Takenlijst</label>
-    <input type="text" id="title" name="title">
-    <input type="text" id="beschrijving" name="beschrijving">
-    <input type="text" id="afdeling" name="afdeling">
+<h1>Nieuwe taak</h1>
 
-    <input type="submit" value="Verstuur melding">
+<form method="POST" action="../controllers/tasksController.php">
+    
+    <label>Titel:</label><br>
+    <input type="text" name="titel" required><br><br>
+
+    <label>Beschrijving:</label><br>
+    <textarea name="beschrijving" required></textarea><br><br>
+
+    <label>Afdeling:</label><br>
+    <select name="afdeling" required>
+        <option value="">-- Kies afdeling --</option>
+        <option value="personeel">Personeel</option>
+        <option value="horeca">Horeca</option>
+        <option value="techniek">Techniek</option>
+        <option value="inkoop">Inkoop</option>
+        <option value="klantenservice">Klantenservice</option>
+        <option value="groen">Groen</option>
+    </select><br><br>
+
+    <input type="hidden" name="action" value="create">
+
+    <button type="submit">Opslaan</button>
+
+</form>
+
+</body>
+</html>
