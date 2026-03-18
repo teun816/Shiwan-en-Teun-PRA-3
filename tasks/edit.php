@@ -3,20 +3,20 @@
 
 <head>
     <title>Taken / Aanpassen</title>
-    <?php require_once __DIR__.'../head.php'; ?>
+    <?php require_once __DIR__.'../index.php'; ?>
 </head>
 
 <body>
     <?php 
 
     if(!isset($_GET['id'])){
-        echo "Geef in je aanpaslink op de index.php het id van betreffende item mee achter de URL in je a-element om deze pagina werkend te krijgen na invoer van je vijfstappenplan";
+        echo
         exit;
 
     }
     ?>
     <?php
-        require_once __DIR__.'../head.php'; ?>
+        require_once __DIR__.'../index.php'; ?>
 
     <div class="container">
         <h1>Taken aanpassen</h1>
@@ -24,7 +24,7 @@
         <?php
         $id = $_GET['id'];
 
-        require_once '../backend/conn.php';
+        require_once '../backend/config.php';
 
         $query = "SELECT * FROM taken WHERE id = :id";
 
@@ -32,7 +32,7 @@
 
         $statement->execute([":id" => $id]);
 
-        $taken = $statement->fetch(PDO::FETCH_ASSOC);
+        $taak = $statement->fetch(PDO::FETCH_ASSOC);
         ?>
 
         <form action="<?php echo $base_url; ?>../backend/tasksController.php" method="POST">

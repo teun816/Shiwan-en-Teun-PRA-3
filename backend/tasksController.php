@@ -1,29 +1,31 @@
 <?php
+
+require_once("../backend/conn.php");
+
 $action = $_POST['action'];
 
-if($action == "create"){
-    $titel = $_POST['titel'];
-    $beschrijving = $_POST['beschrijving'];
+if ($action === "create") {
+
+    // Input ophalen
+    $titel = trim($_POST['titel']);
+    $beschrijving = trim($_POST['beschrijving']);
     $afdeling = $_POST['afdeling'];
 
-    echo $attractie . " / " . $capaciteit . " / " . $melder;
+    // ✅ INSERT query (status automatisch 'todo')
+    $sql = "INSERT INTO taken (titel, beschrijving, afdeling, status)
+            VALUES (:titel, :beschrijving, :afdeling, 'todo')";
 
-    require_once 'config.php';
-
-    $query = "INSERT INTO taken (titel, beschrijving, afdeling)
-    VALUES(:titel, :beschrijving, :afdeling)";
-
-    $statement = $conn->prepare($query);
+    $statement = $conn->prepare($sql);
 
     $statement->execute([
-        ":titel" => $titel,
-        ":beschrijving" => $beschrijving,
-        ":afdeling" => $afdeling,
+        ':titel' => $titel,
+        ':beschrijving' => $beschrijving,
+        ':afdeling' => $afdeling
     ]);
 
-    $items = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-    header("Location: ../Task/index.php?msg=Taak opgeslage");
+    // Redirect na succes
+    header("Location: ../tasks/index.php");
+    exit;
 }
 
 if($action == "update"){
