@@ -14,19 +14,6 @@
             <h1 class="hidden-on-lg">DeveloperLand</h1>
             <a href="/index.php">Index</a>
             <p>Deze taken zijn klaar</p>
-
-
-
-            <?php
-
-
-
-            $status = $_GET['taken'];
-
-
-
-
-            ?>
             <?php
             require_once '../backend/conn.php';
             $query = "SELECT * FROM taken WHERE STATUS = 'Done'";
