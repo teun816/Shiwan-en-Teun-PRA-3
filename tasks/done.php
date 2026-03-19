@@ -21,7 +21,7 @@
 
 
 
-            $status = $_GET['status'];
+            $status = $_GET['taken'];
 
 
 
