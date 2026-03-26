@@ -8,7 +8,19 @@
             <a href="<?php echo $base_url; ?>/tasks/done.php">Done</a>
         </nav>
         <div>
-            <a href="#" style="color: lightgrey;">Inloggen</a>
+            <?php
+            if (isset($_SESSION['username'])) {
+                echo "Welkom, " . $_SESSION['username'] . "!";
+            }
+            if (isset($_SESSION['user_id'])) {
+                ?>
+                <a href="<?php echo $base_url; ?>/logout.php">Uitloggen</a>
+                <?php
+            } else {
+                ?>
+                <a href="<?php echo $base_url; ?>/login.php">Inloggen</a>
+                <?php
+            }
+            ?>
         </div>
-    </div>
 </header>

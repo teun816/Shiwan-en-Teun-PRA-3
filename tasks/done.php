@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id']))
+{
+    header("Location: ../../../login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,11 +16,9 @@
 </head>
 
 <body>
+    <?php require_once '../header.php'; ?>
     <header>
         <div>
-            <img src="/logo-big-fill-only.png" alt="DeveloperLand logo" class="logo hidden-on-sm">
-            <h1 class="hidden-on-lg">DeveloperLand</h1>
-            <a href="/index.php">Index</a>
             <p>Deze taken zijn klaar</p>
             <?php
             require_once '../backend/conn.php';
