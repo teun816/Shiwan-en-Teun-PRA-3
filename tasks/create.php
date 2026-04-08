@@ -37,6 +37,9 @@ if (!isset($_SESSION['user_id']))
     <label>Status:</label><br>
     <input type="text" name="status" required><br><br>
 
+    <label for="deadline">Deadline:</label>
+    <input type="date" name="deadline" id="deadline" required><br><br>
+
     <input type="hidden" name="action" value="create">
 
     <button type="submit">Opslaan</button>

@@ -27,7 +27,7 @@ if (!isset($_SESSION['user_id']))
 
 <?php require_once 'create.php'; 
     
-$query = "SELECT * FROM taken";
+$query = "SELECT * FROM taken ORDER BY deadline ASC";
 $statement = $conn->prepare($query);
 $statement->execute();
 $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -40,6 +40,7 @@ $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
         <th>beschrijving</th>
         <th>afdeling</th>
         <th>Aanpassen</th>
+        <th>deadline</th>
     </tr>
 
         <?php foreach($taken as $taak) { ?>
@@ -48,6 +49,7 @@ $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
             <td><?php echo $taak['beschrijving']; ?></td>
             <td><?php echo $taak['afdeling']; ?></td>
             <td><a href="edit.php?id=<?php echo $taak['id']; ?>">Detail</a></td>
+            <td><?php echo $taak['deadline']; ?></td>
         </tr>
         <?php } ?>
 </table>
