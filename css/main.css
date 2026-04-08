@@ -184,6 +184,69 @@ button:hover{
     background: #f0f0f0;
 }
 
+.body1 {
+    font-family: Arial, sans-serif;
+    background: #e5e5e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container1 {
+    background: white;
+    padding: 40px;
+    width: 500px;
+    border-radius: 6px;
+    justify-content: center;
+    margin: 0 auto;
+    border: 2px solid #333;
+}
+
+.title1 {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.label1 {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+.input1 {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #333;
+    background: transparent;
+}
+
+.buttons1 {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.button1 {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid #333;
+    background: transparent;
+    cursor: pointer;
+    justify-content: center;
+    margin: 0 auto;
+    
+}
+
+.button1:hover {
+    background: white;
+    margin: 0 auto;
+    justify-content: center;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
