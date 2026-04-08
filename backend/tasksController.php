@@ -43,7 +43,7 @@ if ($action == "create") {
         ":user" => $user_id
     ]);
 
-    header("Location: ../tasks/index.php");
+    header("Location: ../index.php");
     exit;
 }
 
@@ -77,7 +77,7 @@ if($action == "update"){
         ":id" => $id
     ]);
 
-    header("Location: ../tasks/index.php?msg=Taak aangepast");
+    header("Location: ../index.php?msg=Taak aangepast");
     exit;
 }
 
