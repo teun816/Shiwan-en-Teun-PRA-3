@@ -4,36 +4,45 @@ require_once("../backend/conn.php");
 
 $action = $_POST['action'];
 
-if ($action === "create") {
+session_start();
 
-    // Input ophalen
-    $titel = trim($_POST['titel']);
-    $beschrijving = trim($_POST['beschrijving']);
+if ($action == "create") {
+
+    $titel = $_POST['titel'];
+    $beschrijving = $_POST['beschrijving'];
     $afdeling = $_POST['afdeling'];
-    $status = trim($_POST['status']);
-    $deadline = ($_POST['deadline']);
+    $deadline = $_POST['deadline'];
+
+    // 👇 BELANGRIJK: default status
+    $status = "Te doen";
+
+    // 👇 user uit session
+    if (!isset($_SESSION['user']['id'])) {
+        die("Niet ingelogd");
+    }
+
     $user_id = $_SESSION['user']['id'];
 
-    if (empty($deadline)) {
-    $errors[] = "Deadline is verplicht.";
-}
+    // simpele validatie
+    if (empty($titel) || empty($deadline)) {
+        die("Titel en deadline zijn verplicht");
+    }
 
-    // ✅ INSERT query (status automatisch 'todo')
-    $sql = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user_id)
-            VALUES (:titel, :beschrijving, :afdeling, :status, :deadline, :user_id)";
+    $query = "INSERT INTO taken 
+    (titel, beschrijving, afdeling, status, deadline, user)
+    VALUES 
+    (:titel, :beschrijving, :afdeling, :status, :deadline, :user)";
 
-    $statement = $conn->prepare($sql);
-
+    $statement = $conn->prepare($query);
     $statement->execute([
-        ':titel' => $titel,
-        ':beschrijving' => $beschrijving,
-        ':afdeling' => $afdeling,
-        ':status' => $status,
-        ':deadline' => $deadline,
-        ':user_id' => $user_id
+        ":titel" => $titel,
+        ":beschrijving" => $beschrijving,
+        ":afdeling" => $afdeling,
+        ":status" => $status,
+        ":deadline" => $deadline,
+        ":user" => $user_id
     ]);
 
-    // Redirect na succes
     header("Location: ../tasks/index.php");
     exit;
 }
