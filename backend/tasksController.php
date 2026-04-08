@@ -12,14 +12,15 @@ if ($action === "create") {
     $afdeling = $_POST['afdeling'];
     $status = trim($_POST['status']);
     $deadline = ($_POST['deadline']);
+    $user_id = $_SESSION['user']['id'];
 
     if (empty($deadline)) {
     $errors[] = "Deadline is verplicht.";
 }
 
     // ✅ INSERT query (status automatisch 'todo')
-    $sql = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline)
-            VALUES (:titel, :beschrijving, :afdeling, :status, :deadline)";
+    $sql = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user_id)
+            VALUES (:titel, :beschrijving, :afdeling, :status, :deadline, :user_id)";
 
     $statement = $conn->prepare($sql);
 
@@ -28,7 +29,8 @@ if ($action === "create") {
         ':beschrijving' => $beschrijving,
         ':afdeling' => $afdeling,
         ':status' => $status,
-        ':deadline' => $deadline
+        ':deadline' => $deadline,
+        ':user_id' => $user_id
     ]);
 
     // Redirect na succes
