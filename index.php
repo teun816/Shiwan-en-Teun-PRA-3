@@ -59,7 +59,7 @@ if (!isset($_SESSION['user_id']))
     </div>
 
     <div class="buttons">
-        <a href="<?php echo $base_url; ?>/tasks/edit.php">
+        <a href="<?php echo $base_url; ?>/tasks/create.php">
         <button>Toevoegen</button>
         </a>
         <button>Verwijderen</button>
