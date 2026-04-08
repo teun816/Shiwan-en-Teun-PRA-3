@@ -22,10 +22,12 @@ if (!isset($_SESSION['user_id']))
             <p>Deze taken zijn klaar</p>
             <?php
             require_once '../backend/conn.php';
-            $query = "SELECT * FROM taken WHERE STATUS = 'Done'";
-            $statement = $conn->prepare(query: $query);
+            $query = "SELECT * FROM taken 
+                WHERE status = 'Done' 
+                ORDER BY deadline ASC";
+            $statement = $conn->prepare($query);
             $statement->execute();
-            $meldingen = $statement->fetchAll(mode: PDO::FETCH_ASSOC);
+            $meldingen = $statement->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <div class="meldingen">
                 <table>
