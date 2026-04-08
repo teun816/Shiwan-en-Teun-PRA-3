@@ -25,20 +25,35 @@ if (!isset($_SESSION['user_id']))
 
         <div class="column">
             <h2>Te doen</h2>
-            <p>taak 1</p>
-            <p>taak 2</p>
-            <p>taak 3</p>
+            <?php foreach ($taken as $taak): ?>
+            <?php if ($taak['status'] == 'Te doen'): ?>
+                <div>
+                    <?php echo $taak['titel']; ?>
+                </div>
+            <?php endif; ?>
+            <?php endforeach; ?>
         </div>
 
         <div class="column">
             <h2>Bezig</h2>
-            <p>taak 4</p>
+            <?php foreach ($taken as $taak): ?>
+            <?php if ($taak['status'] == 'Bezig'): ?>
+                <div>
+                    <?php echo $taak['titel']; ?>
+                </div>
+            <?php endif; ?>
+            <?php endforeach; ?>
         </div>
 
         <div class="column">
-            <h2>Afgerond</h2>
-            <p>taak 5</p>
-            <p>taak 6</p>
+            <h2>Done</h2>
+            <?php foreach ($taken as $taak): ?>
+            <?php if ($taak['status'] == 'Klaar'): ?>
+                <div>
+                    <?php echo $taak['titel']; ?>
+                </div>
+            <?php endif; ?>
+            <?php endforeach; ?>
         </div>
 
     </div>
