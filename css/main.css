@@ -195,12 +195,12 @@ button:hover{
 
 .container1 {
     background: white;
-    padding: 40px;
+    padding: 50px;
     width: 500px;
-    border-radius: 6px;
+    border-radius: 0px;
     justify-content: center;
     margin: 0 auto;
-    border: 2px solid #333;
+    border: 3px solid #333;
 }
 
 .title1 {
