@@ -48,15 +48,15 @@ if (!isset($_SESSION['user_id'])) {
 
         <form action="<?php echo $base_url; ?>../backend/tasksController.php" method="POST">
             <input type="hidden" name="action" value="update">
-            <input type="hidden" name="id" value="<?php echo $taak['id']; ?>">
+            <input type="hidden" name="id" value="<?php echo $taken['id']; ?>">
 
-            <input type="text" name="titel" value="<?php echo $taak['titel']; ?>">
-            <input type="text" name="beschrijving" value="<?php echo $taak['beschrijving']; ?>">
-            <input type="text" name="afdeling" value="<?php echo $taak['afdeling']; ?>">
-            <input type="text" name="status" value="<?php echo $taak['status']; ?>">
+            <input type="text" name="titel" value="<?php echo $taken['titel']; ?>">
+            <input type="text" name="beschrijving" value="<?php echo $taken['beschrijving']; ?>">
+            <input type="text" name="afdeling" value="<?php echo $taken['afdeling']; ?>">
+            <input type="text" name="status" value="<?php echo $taken['status']; ?>">
 
             <input type="date" name="deadline" 
-            value="<?php echo $taak['deadline']; ?>">
+            value="<?php echo $taken['deadline']; ?>">
             
             <input type="submit" value="Melding opslaan">
 
