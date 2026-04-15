@@ -82,11 +82,9 @@ if (!isset($_SESSION['user_id']))
         <a href="<?php echo $base_url; ?>/tasks/create.php">
         <button>Toevoegen</button>
         </a>
-        <a href="<?php echo $base_url; ?>/tasks/edit.php">
-        <button>Aanpassen</button>
+        <button><td><a href="tasks/edit.php?id=<?php echo $taak['id']; ?>">Aanpassen</a></td>></button>
         </a>
-        <a href="<?php echo $base_url; ?>/tasks/edit.php">
-        <button>Verwijderen</button>
+        <button><td><a href="tasks/edit.php?id=<?php echo $taak['id']; ?>">Verwijderen</a></td>></button>
         </a>
     </div>
 
