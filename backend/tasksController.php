@@ -1,6 +1,6 @@
 <?php
 
-require_once("../backend/conn.php");
+require_once("conn.php");
 
 $action = $_POST['action'];
 

@@ -4,7 +4,7 @@ session_start();
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-require_once '../backend/conn.php';
+require_once 'conn.php';
 $query = "SELECT * FROM users WHERE username = :username";
 $statement = $conn->prepare($query);
 $statement->execute([":username" => $username]);
