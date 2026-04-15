@@ -14,14 +14,7 @@ if ($action == "create") {
     $deadline = $_POST['deadline'];
 
     // 👇 BELANGRIJK: default status
-    $status = "Te doen";
-
-    // 👇 user uit session
-    if (!isset($_SESSION['user']['id'])) {
-        die("Niet ingelogd");
-    }
-
-    $user_id = $_SESSION['user']['id'];
+    $status = "todo";
 
     // simpele validatie
     if (empty($titel) || empty($deadline)) {
@@ -82,4 +75,13 @@ if($action == "update"){
 }
 
 if($action == "delete"){
+    $id = $_POST['id'];
+
+    require_once 'conn.php';
+    $query = "DELETE FROM taken WHERE id = :id";
+    $statement = $conn->prepare($query);
+    $statement->execute([
+        "id" => $id
+    ]);
+    header("Location: ../index.php?msg=Melding verwijderd");
 }

@@ -19,7 +19,7 @@ if (!isset($_SESSION['user_id'])) {
         <h1>Taak aanmaken</h1>
     </div>
     <div class="container1">
-        <form method="POST" action="../controllers/tasksController.php">
+        <form method="POST" action="../backend/tasksController.php">
 
             <label class="label1">Titel:</label><br>
             <input class="input1" type="text" name="titel" required><br><br>
