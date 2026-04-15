@@ -20,14 +20,20 @@ if (!isset($_SESSION['user_id']))
     <div class="container10">
 
     <h1>Takenoverzicht</h1>
-
     <div class="board">
 
         <div class="column">
             <div class="teDoen">
             <h2>Te doen</h2>
-            <?php foreach ($taken as $taak): ?>
-            <?php if ($taak['status'] == 'Te doen'): ?>
+            <?php
+            require_once 'backend/conn.php';
+            $query = "SELECT * FROM taken";
+            $statement = $conn->prepare("SELECT * FROM taken WHERE status = 'todo'" );
+            $statement->execute();
+            $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($taken as $taak): ?>
+            <?php if ($taak['status'] == 'todo'): ?>
                 <div>
                     <?php echo $taak['titel']; ?>
                 </div>
@@ -39,7 +45,14 @@ if (!isset($_SESSION['user_id']))
         <div class="column">
             <div class="bezig">
             <h2>Bezig</h2>
-            <?php foreach ($taken as $taak): ?>
+            <?php
+            require_once 'backend/conn.php';
+            $query = "SELECT * FROM taken";
+            $statement = $conn->prepare("SELECT * FROM taken WHERE status = 'todo'" );
+            $statement->execute();
+            $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($taken as $taak): ?>
             <?php if ($taak['status'] == 'Bezig'): ?>
                 <div>
                     <?php echo $taak['titel']; ?>
@@ -52,7 +65,14 @@ if (!isset($_SESSION['user_id']))
         <div class="column">
           <div class="klaar">
             <h2>Done</h2>
-            <?php foreach ($taken as $taak): ?>
+            <?php
+            require_once 'backend/conn.php';
+            $query = "SELECT * FROM taken";
+            $statement = $conn->prepare("SELECT * FROM taken WHERE status = 'todo'" );
+            $statement->execute();
+            $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($taken as $taak): ?>
             <?php if ($taak['status'] == 'Klaar'): ?>
                 <div>
                     <?php echo $taak['titel']; ?>
@@ -61,7 +81,7 @@ if (!isset($_SESSION['user_id']))
             <?php endforeach; ?>
          </div>
         </div>
-
+  
     </div>
 
     <div class="buttons">
