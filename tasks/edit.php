@@ -46,7 +46,7 @@ if (!isset($_SESSION['user_id'])) {
         $taken = $statement->fetch(PDO::FETCH_ASSOC);
         ?>
 
-        <form action="<?php echo $base_url; ?>../backend/tasksController.php" method="POST">
+        <form action="../backend/tasksController.php" method="POST">
             <input type="hidden" name="action" value="update">
             <input type="hidden" name="id" value="<?php echo $taken['id']; ?>">
 
