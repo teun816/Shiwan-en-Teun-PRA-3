@@ -247,6 +247,17 @@ button:hover{
     justify-content: center;
 }
 
+.knop {
+    padding: 10px 25px;
+    margin: 10px;
+    border-radius: 20px;
+    border: 2px solid black;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+    
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

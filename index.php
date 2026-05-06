@@ -28,12 +28,12 @@ if (!isset($_SESSION['user_id']))
             <?php
             require_once 'backend/conn.php';
             $query = "SELECT * FROM taken";
-            $statement = $conn->prepare("SELECT * FROM taken WHERE status = 'todo'" );
+            $statement = $conn->prepare("SELECT * FROM taken WHERE status = 'te doen'" );
             $statement->execute();
             $taken = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($taken as $taak): ?>
-            <?php if ($taak['status'] == 'todo'): ?>
+            <?php if ($taak['status'] == 'te doen'): ?>
                 <div>
                    <a href="tasks/edit.php?id=<?php echo $taak['id']; ?>">
                          <?php echo $taak['titel']; ?>
@@ -95,10 +95,6 @@ if (!isset($_SESSION['user_id']))
     <div class="buttons">
         <a href="<?php echo $base_url; ?>/tasks/create.php">
         <button>Toevoegen</button>
-        </a>
-        <button><td><a href="tasks/edit.php?id=<?php echo $taak['id']; ?>">Aanpassen</a></td>></button>
-        </a>
-        <button><td><a href="tasks/edit.php?id=<?php echo $taak['id']; ?>">Verwijderen</a></td>></button>
         </a>
     </div>
 

@@ -18,7 +18,7 @@ if (!isset($_SESSION['user_id'])) {
     <?php
         require_once __DIR__.'../../header.php'; ?>
 
-    <div class="container">
+    <div class="container1">
         <?php
         if(!isset($_GET['id'])) {
             echo "Geen id meegegeven";
@@ -47,28 +47,28 @@ if (!isset($_SESSION['user_id'])) {
         ?>
 
         <form action="../backend/tasksController.php" method="POST">
-            <input type="hidden" name="action" value="update">
-            <input type="hidden" name="id" value="<?php echo $taken['id']; ?>">
-
-            <input type="text" name="titel" value="<?php echo $taken['titel']; ?>">
-            <input type="text" name="beschrijving" value="<?php echo $taken['beschrijving']; ?>">
-            <input type="text" name="afdeling" value="<?php echo $taken['afdeling']; ?>">
-            <input type="text" name="status" value="<?php echo $taken['status']; ?>">
-
-            <input type="date" name="deadline" 
-            value="<?php echo $taken['deadline']; ?>">
-            
-            <input type="submit" value="Melding opslaan">
-
+            <input class="input1" type="hidden" name="action" value="update">
+            <input class="input1" type="hidden" name="id" value="<?php echo $taken['id']; ?>">
+            <label class="label1">Titel:</label><br>
+            <input class="input1" type="text" name="titel" value="<?php echo $taken['titel']; ?>"><br><br>
+            <label class="label1">Beschrijving:</label><br>
+            <input class="input1" type="text" name="beschrijving" value="<?php echo $taken['beschrijving']; ?>"><br><br>
+            <label class="label1">Afdeling:</label><br>
+            <input class="input1" type="text" name="afdeling" value="<?php echo $taken['afdeling']; ?>"><br><br>
+            <label class="label1">Status:</label><br>
+            <input class="input1" type="text" name="status" value="<?php echo $taken['status']; ?>"><br><br>
+            <label class="label1">Deadline:</label><br>
+            <input class="input1" type="date" name="deadline" 
+            value="<?php echo $taken['deadline']; ?>">    
+            <input type="submit" value="Melding opslaan" class="knop">
         </form>
 
-        <hr>
         <form action="../backend/tasksController.php" method="POST">
-        <input type="hidden" name="action" value="delete">
-        <input type="hidden" name="id" value="<?php echo $id; ?>">
-        <input type="submit" value="Verwijderen">
+        <input class="input1" type="hidden" name="action" value="delete">
+        <input class="input1" type="hidden" name="id" value="<?php echo $id; ?>">
+        <input type="submit" value="Verwijderen" class="knop">
         </form>
-        </hr>
+
     </div>  
 
 </body>
