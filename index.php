@@ -23,6 +23,7 @@ if (!isset($_SESSION['user_id']))
     <div class="board">
 
         <div class="column">
+            <div class="teDoen">
             <h2>Te doen</h2>
             <?php
             require_once 'backend/conn.php';
@@ -38,9 +39,11 @@ if (!isset($_SESSION['user_id']))
                 </div>
             <?php endif; ?>
             <?php endforeach; ?>
+            </div>
         </div>
 
         <div class="column">
+            <div class="bezig">
             <h2>Bezig</h2>
             <?php
             require_once 'backend/conn.php';
@@ -56,9 +59,11 @@ if (!isset($_SESSION['user_id']))
                 </div>
             <?php endif; ?>
             <?php endforeach; ?>
+            </div>
         </div>
 
         <div class="column">
+          <div class="klaar">
             <h2>Done</h2>
             <?php
             require_once 'backend/conn.php';
@@ -74,6 +79,7 @@ if (!isset($_SESSION['user_id']))
                 </div>
             <?php endif; ?>
             <?php endforeach; ?>
+         </div>
         </div>
   
     </div>

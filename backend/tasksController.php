@@ -12,6 +12,7 @@ if ($action == "create") {
     $beschrijving = $_POST['beschrijving'];
     $afdeling = $_POST['afdeling'];
     $deadline = $_POST['deadline'];
+    $user_id = $_SESSION['user_id'];
 
     // 👇 BELANGRIJK: default status
     $status = "todo";
